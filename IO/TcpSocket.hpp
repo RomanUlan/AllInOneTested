@@ -14,12 +14,12 @@ public:
   virtual ~TcpSocket();
 
 public:
-  void bind(int);
-  void listen() const;
-  TcpSocket::Ptr accept() const;
+  virtual void bind(int);
+  virtual void listen() const;
+  virtual TcpSocket::Ptr accept() const;
 
 
-private:
+protected:
   TcpSocket(int, const struct sockaddr&, socklen_t);
 
 private:

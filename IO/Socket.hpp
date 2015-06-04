@@ -14,10 +14,10 @@ public:
   virtual ~Socket();
 
 public:
-  Descriptor getDescriptor() const;
-  void setNonBlocking() const;
-  void read(std::string&) const;
-  void write(const std::string&) const;
+  virtual Descriptor getDescriptor() const;
+  virtual void setNonBlocking() const;
+  virtual void read(std::string&) const;
+  virtual void write(const std::string&) const;
 
 protected:
   Socket(int, int, int);
