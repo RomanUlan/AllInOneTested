@@ -13,11 +13,15 @@
 ##########        BEGIN User part            ##########
 ##########       You can change it           ##########
 #######################################################
-CFLAGS = -std=c++11 -Wall -g -I ../mocks -I ../.. \
+CFLAGS = -std=c++11 -Wall -g \
+		 -fprofile-arcs -ftest-coverage \
+		 -I ../mocks -I ../.. \
 		 -I ../../IO -I ../../EchoResponder \
 		 -I ../../EchoResponder/EventDemultiplexer \
 		 -I ../../EchoResponder/EventSources
-LDFLAGS = -lgtest -lgmock -lgmock_main -lpthread
+
+LDFLAGS = -lgcov -lgtest -lgmock -lgmock_main -lpthread
+
 SOURCES = ../../IO/Epoll.cpp \
 		  ../../IO/Socket.cpp \
 		  ../../IO/TcpSocket.cpp \
@@ -34,6 +38,7 @@ SOURCES = ../../IO/Epoll.cpp \
 		  ../mocks/EpollMock.cpp \
 		  ../mocks/TcpSocketMock.cpp \
 		  HsHaTests.cpp
+
 NAME = prog
 #######################################################
 ##########        END User part              ##########

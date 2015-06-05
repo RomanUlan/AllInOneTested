@@ -2,6 +2,7 @@
 #define TWO_END_QUEUE_HPP
 
 #include <list>
+#include <memory>
 #include <mutex>
 #include <condition_variable>
 
