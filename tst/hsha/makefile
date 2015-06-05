@@ -49,6 +49,8 @@ NAME = prog
 ##########     You shouldn't change it       ##########
 #######################################################
 OBJECTS = $(SOURCES:.cpp=.o)
+GCNOS = $(SOURCES:.cpp=.gcno)
+GCDAS = $(SOURCES:.cpp=.gcda)
 
 all: $(NAME)
 
@@ -60,6 +62,8 @@ $(NAME): $(OBJECTS)
 
 clean:
 	rm -f $(OBJECTS)
+	rm -f $(GCNOS)
+	rm -f $(GCDAS)
 	rm -f $(NAME)
 #######################################################
 ##########       END Automation part         ##########
