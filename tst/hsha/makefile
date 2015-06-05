@@ -60,11 +60,21 @@ $(NAME): $(OBJECTS)
 %.o: %.cpp
 	$(CXX) -c $(CFLAGS) $< -o $@
 
+run:
+	./$(NAME)
+
+coverage: all run
+	mkdir -p results/html
+	lcov -b . -d ../.. -c -o results/coverage.info
+	lcov -r results/coverage.info /usr/\* tst/* -o results/coverage.info
+	genhtml results/coverage.info --output-directory results/html/ --ignore-errors source
+
 clean:
 	rm -f $(OBJECTS)
 	rm -f $(GCNOS)
 	rm -f $(GCDAS)
 	rm -f $(NAME)
+	rm -rf results
 #######################################################
 ##########       END Automation part         ##########
 #######################################################
