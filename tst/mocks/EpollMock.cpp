@@ -1,11 +1,10 @@
 #include "EpollMock.hpp"
 
 EpollMock::EpollMock()
-	: Epoll()
+  : Epoll()
 {
 }
 
 EpollMock::~EpollMock()
 {
 }
-
